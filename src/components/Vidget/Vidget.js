@@ -12,11 +12,13 @@ class Vidget extends Component {
         this.setState(prevState => ({ [e.target.name]: prevState[e.target.name] + 1, }))
     };
 
+    countTotalFeedback = () => Object.values(this.state).reduce((prev, element) => prev + element,0)
+
     render() {
         const { good, neutral, bad } = this.state;
     
-        return <VidgetSection>
-            
+        return <VidgetSection onChange={this.countTotalFeedback}>
+
             <Title>Please leave feedback</Title>
             <GreenButton name='good' onClick={(e) => this.handleIncrement(e)}>Good</GreenButton>
             <Button name='neutral' onClick={(e) => this.handleIncrement(e)}>Neutral</Button>
@@ -25,6 +27,8 @@ class Vidget extends Component {
             <GreenText>good:{good}</GreenText>
             <Text>neutral:{neutral}</Text>
             <RedText>bad:{bad}</RedText>
+            <Text onChange={this.countTotalFeedback}>Total:{this.countTotalFeedback()}</Text>
+            <Text>Positive feedback:</Text>
         
         </VidgetSection>;
     }
