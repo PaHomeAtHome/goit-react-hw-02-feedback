@@ -12,5 +12,17 @@ margin: 5px;
 padding: 10px;
 cursor: pointer;`
 
+export const RedButton = styled(Button)`
+background-color: red;`
+
+export const GreenButton = styled(Button)`
+background-color: green;`
+
 export const Text = styled.p`
 font-size: 20px;`
+
+export const GreenText = styled(Text)`
+color: green;`
+
+export const RedText = styled(Text)`
+color: red;`
