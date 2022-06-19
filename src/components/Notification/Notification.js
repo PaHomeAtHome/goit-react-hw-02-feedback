@@ -1,6 +1,6 @@
-import {Notification} from './NotificationStyles'
+import { Notification } from './NotificationStyles'
 
-export default function NotificationMessage(message) {
+export default function NotificationMessage({ message }) {
 
-    return  <Notification>{message}</Notification>
+    return <Notification>{message}</Notification>
 }

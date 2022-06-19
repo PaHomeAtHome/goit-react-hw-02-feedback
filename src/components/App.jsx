@@ -34,10 +34,12 @@ export class App extends Component {
       <Section title='Please leave feedback'>
         <FeedbackOptions options={this.state} onLeaveFeedback={this.handleIncrement}></FeedbackOptions>
       </Section>
-      <Section title='Statistics'> {}
-        {  total > 0 && <Statistics state={this.state} total={this.countTotalFeedback} percentage={this.countPositiveFeedbackPercentage}>
-        </Statistics>}
-        { total === 0 && <Notification message='There is no feedback'></Notification>}
+      <Section title='Statistics'>
+        {total > 0 ?
+          <Statistics state={this.state} total={this.countTotalFeedback} percentage={this.countPositiveFeedbackPercentage}>
+          </Statistics>
+          :
+        <Notification message="There is no feedback"></Notification>}
       </Section>
     </Container>
   } 
