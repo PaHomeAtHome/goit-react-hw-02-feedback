@@ -1,4 +1,4 @@
-import Text from './StatisticStyles'
+import { Text } from './StatisticStyles'
 
 export default function Statistics({ state, total, percentage }) {
 
@@ -7,6 +7,6 @@ export default function Statistics({ state, total, percentage }) {
     
     const result = <>{stats}<Text>Total: {total()}</Text><Text>Positive feedback: {percentage()}</Text></>;
 
-    return result
+    return result;
 }
 

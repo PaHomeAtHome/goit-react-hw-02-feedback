@@ -3,6 +3,7 @@ import Container from './Container/Container';
 import Statistics from './Statistics/Statistics';
 import FeedbackOptions from './FeedbackOptions/FeedbackOptions';
 import Section from "./Section/Section";
+import Notification from "./Notification/Notification";
 
 export class App extends Component {
   state = {
@@ -27,11 +28,16 @@ export class App extends Component {
 
   render() {
 
+    const total = this.countTotalFeedback();
+
     return <Container>
-      <Section>
+      <Section title='Please leave feedback'>
         <FeedbackOptions options={this.state} onLeaveFeedback={this.handleIncrement}></FeedbackOptions>
-        <Statistics state={this.state} total={this.countTotalFeedback} percentage={this.countPositiveFeedbackPercentage}>
-        </Statistics>
+      </Section>
+      <Section title='Statistics'> {}
+        {  total > 0 && <Statistics state={this.state} total={this.countTotalFeedback} percentage={this.countPositiveFeedbackPercentage}>
+        </Statistics>}
+        { total === 0 && <Notification message='There is no feedback'></Notification>}
       </Section>
     </Container>
   } 
